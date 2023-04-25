@@ -1,7 +1,9 @@
 :root {
-    --pink: rgb(253, 169, 228);
-    --lightpink: rgb(249, 181, 227);
-    --whitepink: rgb(246, 210, 235);
+    --darkpink: rgb(253, 169, 228);
+    --medpink: rgb(249, 181, 227);
+    --lightpink: rgb(254, 198, 237);
+    --whitepink: rgb(251, 226, 243);
+    --textboxpink: rgb(253, 236, 248);
     --gray: rgb(123, 108, 116);
     --darkgray: rgb(79, 69, 76);
 
@@ -10,27 +12,31 @@
 * {
     background-color: var(--whitepink);
     font-family: 'Courier New', Courier, monospace;
+    color: var(--darkgray);
 }
 
 /* styles for header, header text, and timer */
 .header {
     display: flex;
+    position: fixed;
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: flex-end;
-    min-height: 150px;
+    min-height: auto;
+    min-width: 1230px;
     background-color: var(--lightpink);
     margin: -10px;
     padding-left: 30px;
     padding-right: 30px;
-    color: var(--darkgray);
     font-weight: bold;
 }
 
 .headertxt {
     background-color: transparent;
+    padding-top: 30px;
     padding-bottom: 15px;
-    font-size: 30px;
+    font-size: 35px;
+    margin-right: 10px;
 }
 
 #timer {
@@ -40,66 +46,128 @@
 
 }
 
-/* style for "Start!" button/hover pseudoclass */
-#start {
-    display: flex;
-    min-height: 500px;
-    width: 100%;
-    margin-top: 10px;
-    margin-left: -10px;
-    padding-right: 20px;
-    justify-content: center;
-    align-items: center;
+/* test class */
+.testy {
+    color: red;
 }
 
-#start p {
-    font-family: 'Courier New', Courier, monospace;
+/* style for "Start!" button/hover pseudoclass */
+
+.startSec {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 150px;
+    min-height: 200px;
+    background-color: transparent;
+}
+
+.startBtn {
     padding: 30px;
     padding-left: 80px;
     padding-right: 80px;
     font-size: 50px;
     font-weight: bold;
-    color: var(--darkgray);
-    background-color: var(--pink);
+    background-color: var(--medpink);
     border-style: dashed;
     border-width: 5px;
     border-radius: 5%;
 }
 
-#start p:hover {
+.startBtn:hover {
     font-size: 70px;
     cursor: pointer;
     color: var(--gray);
     background-color: var(--lightpink);
 }
 
-
-/* style for questions section/questions */
+/* style for questions section/questions/answer buttons */
 #questions {
     display: none;
     justify-content: center;
+    align-items: center;
     background-color: transparent;
     min-height: 500px;
-    width: 100%;
-    margin-top: 10px;
-    margin-left: -10px;
-    padding-right: 20px;
+}
+
+.button {
+    display: block;
+    font-size: 18px;
+    border-style: none;
+    background-color: transparent;
+    margin-bottom: 20px;
+}
+
+.button:hover {
+    cursor: pointer;
+    color: var(--gray);
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .question {
+    display: flex;
+    flex-flow: column wrap;
     background-color: transparent;
 }
 
-.question ol {
-    font-size: 18px;
+/* style for the scoreboard section with submit/try again buttons */
+.scoreSec {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    margin-top: 200px;
+    max-width: 100%;
+    max-height: 270px;
+    padding-bottom: 100px;
+    background-color: transparent;
 }
 
-.question li {
-    margin: 10px;
+.scoreDisplay, .initialPrompt {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.textbox, .initialSubmit {
+    max-width: 150px;
+    margin-top: 20px;
+    align-self: center;
+}
+
+.textbox {
+    background-color: var(--textboxpink);
+    resize: none;
+    border-style: solid;
+    border-color: gray;
+    border-width: 1px;
+}
+
+.initialSubmit, .redoBtn, .retryBtn {
+    max-width: fit-content;
+    font-weight: bold;
+    background-color: var(--medpink);
+    font-size: 18px;
+    border-style: dashed;
+    border-color: var(--darkgray);
+    border-width: 2px;
+    border-radius: 5%;
+}
+
+.initialSubmit:hover, .redoBtn:hover, .retryBtn:hover {
+    cursor: pointer;
+    color: var(--gray);
+    background-color: var(--lightpink);
+    font-size: 20px;
+    border-color: var(--gray);
+}
+
+.redoBtn, .retryBtn {
+    margin-top: 10px;
 }
 
 .footer {
     min-height: 100px;
+    min-width: auto;
     background-color: var(--lightpink);
     margin: -10px;
 }

@@ -1,3 +1,5 @@
 # 04-quiz
 
-https://stackoverflow.com/questions/32027935/addeventlistener-is-not-a-function-why-does-this-error-occur troubleshooting event listener error for choices
+https://developer.mozilla.org/en-US/docs/Web/API/Location/reload - location.reload() method source
+
+https://stackoverflow.com/questions/5271782/how-to-disable-the-resize-grabber-of-textarea for disabling text box resize
