@@ -23,7 +23,7 @@
     justify-content: space-between;
     align-items: flex-end;
     min-height: auto;
-    min-width: 1230px;
+    width: 100%;
     background-color: var(--lightpink);
     margin: -10px;
     padding-left: 30px;
@@ -57,8 +57,9 @@
     display: none;
     justify-content: center;
     align-items: center;
+    width: auto;
     padding: 150px;
-    min-height: 200px;
+    min-height: 100%;
     background-color: transparent;
 }
 
@@ -109,6 +110,10 @@
     display: flex;
     flex-flow: column wrap;
     background-color: transparent;
+}
+
+.questionHead {
+    color: red;
 }
 
 /* style for the scoreboard section with submit/try again buttons */
@@ -165,9 +170,65 @@
     margin-top: 10px;
 }
 
+.timesupMsg {
+    color: red;
+}
+
+.scoreboardText {
+    color: red;
+}
+
+/* why tf don't these work on my life i swear to god- */
+.yourscoreText {
+    color: red;
+}
+
+.yourinitialsText {
+    color: red;
+}
+
 .footer {
+    display: flex;
     min-height: 100px;
-    min-width: auto;
+    width: 100%;
     background-color: var(--lightpink);
     margin: -10px;
+}
+
+@media screen and (min-width: 1900px) {
+
+    .header {
+        max-width: 1920px;
+    }
+
+    .headertxt {
+        font-size: 45px;
+    }
+
+    .footer {
+        min-width: 100%;
+        position: fixed;
+    }
+
+    #timer {
+        position: relative;
+        right: 3%;
+    }
+
+    .startSec {
+        min-height: 550px;
+    }
+
+    .startBtn {
+        font-size: 70px;
+        font-weight: bold;
+    }
+    
+    .startBtn:hover {
+        font-size: 90px;
+    }
+
+    #questions {
+        min-height: 850px;
+    }
 }

@@ -22,6 +22,7 @@
 //          X- a "try again?" button that loops back to the start of the game
 // style lol
 //          - prob wanna go thru and have some kinda createElement thing instead of hard coding buttons
+//          - motherfucking mEDIA QUERIES-
 // comments and a readme
 
 
@@ -145,10 +146,6 @@ function timerStart() {
             clearInterval(timeRemaining);
         };
 
-        // if (secondsLeft === 0) {
-        //     timesUp();
-        // }
-
         if (quesIteration > 9){
             clearInterval(timeRemaining);
             logScore();
@@ -164,6 +161,7 @@ function timerStart() {
 function questionGen(){
     ques1.innerHTML = '';
     var questionHead = document.createElement("h2");
+    questionHead.className = "questionHead";
     questionHead.textContent = questions[quesIteration].question;
     ques1.append(questionHead);
 
@@ -245,6 +243,7 @@ function timesUp (){
 
     var timesupMsg = document.createElement("p");
     timesupMsg.textContent = "Oh no! You have run out of time. Click below to try again!";
+    timesupMsg.className = "timesupMsg";
     scoreSec.append(timesupMsg);
 
     var retryBtn = document.createElement("button");
@@ -265,17 +264,18 @@ function scoreBoard (){
     var yourInitials = JSON.parse(localStorage.getItem('initials'));
 
     var scoreboardText = document.createElement("h2");
-    scoreboardText.textContent = "Your result:"
+    scoreboardText.textContent = "Your result:";
+    scoreboardText.className = "scoreboardText";
     scoreSec.append(scoreboardText);
 
     var yourscoreText = document.createElement("h3");
     yourscoreText = yourScore;
-    // give a class for styling
+    yourscoreText.className = "yourscoreText";
     scoreSec.append(yourscoreText);
 
     var yourinitialsText = document.createElement("h3");
     yourinitialsText = yourInitials;
-    // give a class for styling
+    yourinitialsText.className = "yourinitialsText";
     scoreSec.append(yourinitialsText);
 
     var redoBtn = document.createElement("button");
