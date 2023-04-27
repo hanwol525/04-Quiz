@@ -111,6 +111,9 @@ var highScore = [];
 var timer = document.getElementById("timer");
 var secondsLeft = 100;
 var initials = [];
+var prevScore = document.getElementById("lastScore");
+var prevscoreDisplay = [];
+var previnitialsDisplay = [];
 
 // generates/adds an event listener to the start button
 function startBtn (){
@@ -119,15 +122,15 @@ function startBtn (){
     var startBtn = document.createElement("button");
     startBtn.textContent = "Start!"
     startBtn.addEventListener("click", function() {
-        timerStart()
+        timerStart();
+        questionGen();
     })
     startBtn.className = "startBtn";
     start.append(startBtn);
 };
 
-// maybe add smth that displays previous score/initials on start screen
-
 // call
+lastScore();
 startBtn();
 
 // starts/counts timer down
@@ -154,8 +157,9 @@ function timerStart() {
             timesUp();
         };
     }, 1000);
-    questionGen();
 };
+
+questionGen();
 
 // generates HTML for questions/answer buttons
 function questionGen(){

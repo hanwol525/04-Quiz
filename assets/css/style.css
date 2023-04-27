@@ -6,11 +6,12 @@
     --textboxpink: rgb(253, 236, 248);
     --gray: rgb(123, 108, 116);
     --darkgray: rgb(79, 69, 76);
-
+    --green: rgb(241, 255, 249);
+    --darkerpink: rgb(202, 79, 165);
 }
 
 * {
-    background-color: var(--whitepink);
+    background-color: var(--green);
     font-family: 'Courier New', Courier, monospace;
     color: var(--darkgray);
 }
@@ -24,7 +25,7 @@
     align-items: flex-end;
     min-height: auto;
     width: 100%;
-    background-color: var(--lightpink);
+    background-color: var(--darkpink);
     margin: -10px;
     padding-left: 30px;
     padding-right: 30px;
@@ -37,6 +38,12 @@
     padding-bottom: 15px;
     font-size: 35px;
     margin-right: 10px;
+    color: var(--darkgray);
+}
+
+#lastScore p {
+    display: flex;
+    background-color: transparent;
 }
 
 #timer {
@@ -73,6 +80,7 @@
     border-style: dashed;
     border-width: 5px;
     border-radius: 5%;
+    border-color: var(--darkgray);
 }
 
 .startBtn:hover {
@@ -188,11 +196,7 @@
 }
 
 .footer {
-    display: flex;
-    min-height: 100px;
-    width: 100%;
-    background-color: var(--lightpink);
-    margin: -10px;
+    display: none;
 }
 
 @media screen and (min-width: 1900px) {
@@ -203,11 +207,6 @@
 
     .headertxt {
         font-size: 45px;
-    }
-
-    .footer {
-        min-width: 100%;
-        position: fixed;
     }
 
     #timer {
