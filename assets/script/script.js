@@ -1,32 +1,3 @@
-// NEED:
-// start button 
-//         X- default/start screen = big start button
-//         X- when clicked: timer starts and first question is displayed
-// timer
-//         X- counts down from 100
-//         X- stops counting down at the last question
-//         X- records value of time remaining for high score
-//          - need to implement some kind of delay (maybe when quesIteration=0 or smth) for the questiongen to match timer
-// questions
-//         X- multiple choice questions - maybe use hidden displays or create html? idk
-//         X- answers advance to the next question when clicked
-//         X- answers are classified as right answers and wrong answers
-//         X- right answers only advance/display "correct"; wrong answers advance and deduct time/display "wrong"
-//              X- event listeners for clicking on right/wrong answers with timer reaction for wrong answers
-// score box that logs value of time remaining as ur "score"
-//          X- function to stop timer at last button click and log the score (for now: console)
-//          X- smth to display score (createElement some kinda display box)
-// local storage stuff to store names/high scores 
-//          X- some kind of box to enter initials
-// way to display scores from local storage
-//          X- a "try again?" button that loops back to the start of the game
-// style lol
-//          - prob wanna go thru and have some kinda createElement thing instead of hard coding buttons
-//          - motherfucking mEDIA QUERIES-
-// comments and a readme
-
-
-
 // global variable declarations:
 
     // start button variable
@@ -39,69 +10,68 @@ var quesIteration = 0;
 var questions = [
     //0
     {
-        question: "Which of these selectors represents an element's class in CSS?",
-        answers: [".", "#", "$", ";"],
-        // correctAnswer: "why",
+        question: "Which of these operators represents strict equality?",
+        answers: ["===", "==", "||", "="],
     },
     //1
     {
-        question: "h?",
-        answers: ["No", "No", "Yes", "No"],
-        correctAnswer: ".",
+        question: "When do locally stored items expire?",
+        answers: ["After 24 hours", "After 1 year", "Never", "After 5 minutes"],
+        correctAnswer: "===",
     },
     //2
     {
-        question: "f?",
-        answers: ["No", "Yes", "No", "No"],
-        correctAnswer: "Yes",
+        question: "Which method can you use to prevent even bubbling?",
+        answers: ["constrainEvent()", "stopPropagation()", "stopBubbling()", "preventDefault()"],
+        correctAnswer: "Never",
     },
     //3
     {
-        question: "u?",
-        answers: ["No", "No", "Yes", "No"],
-        correctAnswer: "Yes",
+        question: "Which of these is NOT a primitive data type?",
+        answers: ["String", "Number", "Undefined", "Object"],
+        correctAnswer: "stopPropagation()",
     },
     //4
     {
-        question: "c?",
-        answers: ["No", "No", "No", "Yes"],
-        correctAnswer: "Yes",
+        question: "Which method can we use to retrieve all elements within a certain class?",
+        answers: ["querySelector()", "getElementByID()", "querySelectorAll()", "getElementByClass()"],
+        correctAnswer: "Object",
     },
     //5
     {
-        question: "k?",
-        answers: ["Yes", "No", "No", "No"],
-        correctAnswer: "Yes",
+        question: "What does 'DOM' stand for?",
+        answers: ["Document Object Model", "Document Organization Method", "Document Option Model", "Document Organization Mode"],
+        correctAnswer: "querySelectorAll()",
     },
     //6
     {
-        question: "l?",
-        answers: ["Yes", "No", "No", "No"],
-        correctAnswer: "Yes",
+        question: "An array's index, by default, begins at:",
+        answers: ["-1", "0", "1", "10"],
+        correctAnswer: "Document Object Model",
     },
     //7
     {
-        question: "m?",
-        answers: ["No", "Yes", "No", "No"],
-        correctAnswer: "Yes",
+        question: "A variable defined within a function is defined:",
+        answers: ["Globally", "Functionally", "Locally", "Universally"],
+        correctAnswer: "0",
     },
     //8
     {
-        question: "a?",
-        answers: ["No", "No", "Yes", "No"],
-        correctAnswer: "Yes",
+        question: "console.log('42') will log a(n):",
+        answers: ["Number", "Object", "Boolean", "String"],
+        correctAnswer: "Locally",
     },
     //9
     {
-        question: "o?",
-        answers: ["why", "Yes", "No", "No"],
-        correctAnswer: "Yes",
+        question: "Which of these is NOT an example of a keyboard event?",
+        answers: ["Keyup", "Touchstart", "Keypress", "Keydown"],
+        correctAnswer: "String",
     },
     // 10
     {
         question: "",
         answers: [],
-        correctAnswer: "No",
+        correctAnswer: "Touchstart",
     }
 ];
 
@@ -115,7 +85,7 @@ var prevScore = document.getElementById("lastScore");
 var prevscoreDisplay = [];
 var previnitialsDisplay = [];
 
-// generates/adds an event listener to the start button
+// start button
 function startBtn (){
     start.innerHTML = '';
     start.style.display = "flex";
@@ -130,14 +100,14 @@ function startBtn (){
 };
 
 // call
-lastScore();
 startBtn();
 
-// starts/counts timer down
+// timer/countdown
 function timerStart() {
     start.innerHTML = '';
     questionSec.style.display = "flex";
     start.style.display = "none";
+    timer.textContent = "You have 100 seconds remaining!" 
     var timeRemaining = setInterval (function countdown() {
         if (secondsLeft > 0){
             secondsLeft--;};
@@ -159,9 +129,7 @@ function timerStart() {
     }, 1000);
 };
 
-questionGen();
-
-// generates HTML for questions/answer buttons
+// questions/answer buttons
 function questionGen(){
     ques1.innerHTML = '';
     var questionHead = document.createElement("h2");
@@ -201,14 +169,14 @@ function buttonClick(){
 
 };
 
-// logs score at the completion of the quiz
+// local storage log
 function logScore (){
     toString(secondsLeft);
     highScore.push(secondsLeft);
     localStorage.setItem('score', JSON.stringify(highScore));
 };
 
-// displays final score and prompts user to input initials
+// final score display/initial prompts
 function showScore (){
     ques1.innerHTML = '';
     scoreSec.innerHTML = '';
@@ -240,7 +208,7 @@ function showScore (){
     scoreSec.append(initialSubmit);
 };
 
-// displays "Time's up!" msg and prompts user to try again
+// "time's up!" msg
 function timesUp (){
     ques1.innerHTML = '';
     scoreSec.innerHTML = '';
@@ -260,7 +228,7 @@ function timesUp (){
     scoreSec.append(retryBtn);
 };
 
-// creates the scoreboard using locally stored items and prompts user to try again
+// local storage scoreboard
 function scoreBoard (){
     scoreSec.innerHTML = '';
     timer.innerHTML = '';
@@ -272,13 +240,13 @@ function scoreBoard (){
     scoreboardText.className = "scoreboardText";
     scoreSec.append(scoreboardText);
 
-    var yourscoreText = document.createElement("h3");
-    yourscoreText = yourScore;
+    var yourscoreText = document.createElement("p");
+    yourscoreText.textContent = "Score: " + yourScore;
     yourscoreText.className = "yourscoreText";
     scoreSec.append(yourscoreText);
 
-    var yourinitialsText = document.createElement("h3");
-    yourinitialsText = yourInitials;
+    var yourinitialsText = document.createElement("p");
+    yourinitialsText.textContent = "Initials: " + yourInitials;
     yourinitialsText.className = "yourinitialsText";
     scoreSec.append(yourinitialsText);
 

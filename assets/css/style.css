@@ -2,21 +2,20 @@
     --darkpink: rgb(253, 169, 228);
     --medpink: rgb(249, 181, 227);
     --lightpink: rgb(254, 198, 237);
-    --whitepink: rgb(251, 226, 243);
-    --textboxpink: rgb(253, 236, 248);
+    --textboxpink: rgb(250, 238, 247);
     --gray: rgb(123, 108, 116);
     --darkgray: rgb(79, 69, 76);
-    --green: rgb(241, 255, 249);
+    --bgpink: rgb(255, 241, 255);
     --darkerpink: rgb(202, 79, 165);
 }
 
 * {
-    background-color: var(--green);
+    background-color: var(--bgpink);
     font-family: 'Courier New', Courier, monospace;
     color: var(--darkgray);
 }
 
-/* styles for header, header text, and timer */
+/* header/timer */
 .header {
     display: flex;
     position: fixed;
@@ -36,30 +35,19 @@
     background-color: transparent;
     padding-top: 30px;
     padding-bottom: 15px;
-    font-size: 35px;
+    font-size: 45px;
     margin-right: 10px;
     color: var(--darkgray);
 }
 
-#lastScore p {
-    display: flex;
-    background-color: transparent;
-}
-
 #timer {
     background-color: transparent;
-    padding-bottom: 15px;
-    font-size: 20px;
-
+    position: relative;
+    padding-bottom: 21px;
+    font-size: 22px;
 }
 
-/* test class */
-.testy {
-    color: red;
-}
-
-/* style for "Start!" button/hover pseudoclass */
-
+/* "start" button */
 .startSec {
     display: none;
     justify-content: center;
@@ -74,6 +62,7 @@
     padding: 30px;
     padding-left: 80px;
     padding-right: 80px;
+    margin-top: 100px;
     font-size: 50px;
     font-weight: bold;
     background-color: var(--medpink);
@@ -84,13 +73,13 @@
 }
 
 .startBtn:hover {
-    font-size: 70px;
+    font-size: 60px;
     cursor: pointer;
     color: var(--gray);
     background-color: var(--lightpink);
 }
 
-/* style for questions section/questions/answer buttons */
+/* questions/answers */
 #questions {
     display: none;
     justify-content: center;
@@ -101,7 +90,7 @@
 
 .button {
     display: block;
-    font-size: 18px;
+    font-size: 22px;
     border-style: none;
     background-color: transparent;
     margin-bottom: 20px;
@@ -110,24 +99,25 @@
 .button:hover {
     cursor: pointer;
     color: var(--gray);
-    font-size: 18px;
     font-weight: bold;
 }
 
 .question {
     display: flex;
     flex-flow: column wrap;
+    align-items: center;
     background-color: transparent;
 }
 
 .questionHead {
-    color: red;
+    font-size: 28px;
+    margin-top: 200px;
 }
 
-/* style for the scoreboard section with submit/try again buttons */
+/* scoreboard section & submit/try again buttons */
 .scoreSec {
     display: flex;
-    flex-flow: column wrap;
+    flex-direction: column;
     align-items: flex-start;
     margin-top: 200px;
     max-width: 100%;
@@ -136,8 +126,12 @@
     background-color: transparent;
 }
 
+.scoreDisplay {
+    margin-top: 50px;
+}
+
 .scoreDisplay, .initialPrompt {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
 }
 
@@ -150,16 +144,21 @@
 .textbox {
     background-color: var(--textboxpink);
     resize: none;
+    min-height: 30px;
+    min-width: 200px;
+    font-size: 20px;
     border-style: solid;
     border-color: gray;
     border-width: 1px;
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
 
 .initialSubmit, .redoBtn, .retryBtn {
     max-width: fit-content;
     font-weight: bold;
     background-color: var(--medpink);
-    font-size: 18px;
+    font-size: 22px;
     border-style: dashed;
     border-color: var(--darkgray);
     border-width: 2px;
@@ -170,7 +169,7 @@
     cursor: pointer;
     color: var(--gray);
     background-color: var(--lightpink);
-    font-size: 20px;
+    font-size: 24px;
     border-color: var(--gray);
 }
 
@@ -178,27 +177,58 @@
     margin-top: 10px;
 }
 
+/* "time's up" message */
 .timesupMsg {
-    color: red;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 200px;
+    margin-bottom: 20px;
 }
 
+
+/* scoreboard */
 .scoreboardText {
-    color: red;
+    font-size: 28px;
+    margin-top: 40px;
 }
 
-/* why tf don't these work on my life i swear to god- */
-.yourscoreText {
-    color: red;
+.yourscoreText, .yourinitialsText {
+    font-size: 22px;
+    margin-top: 10px;
 }
 
 .yourinitialsText {
-    color: red;
+    margin-bottom: 20px;
 }
 
 .footer {
     display: none;
 }
 
+/* fix for misc property adjustments on med displays */
+@media screen and (min-width: 1440px) {
+    #timer {
+        right: 3%;
+    }
+
+    .startBtn {
+        margin-top: 200px;
+    }
+
+    .questionHead {
+        margin-top: 300px;
+    }
+
+    .scoreDisplay {
+        margin-top: 100px;
+    }
+
+    .scoreboardText {
+        margin-top: 90px;
+    }
+}
+
+/* larger displays */
 @media screen and (min-width: 1900px) {
 
     .header {
@@ -206,12 +236,11 @@
     }
 
     .headertxt {
-        font-size: 45px;
+        font-size: 60px;
     }
 
     #timer {
-        position: relative;
-        right: 3%;
+        font-size: 26px;
     }
 
     .startSec {
@@ -219,15 +248,230 @@
     }
 
     .startBtn {
+        padding: 40px;
+        padding-left: 100px;
+        padding-right: 100px;
+        margin-top: 200px;
         font-size: 70px;
         font-weight: bold;
     }
     
     .startBtn:hover {
-        font-size: 90px;
+        font-size: 80px;
     }
 
     #questions {
         min-height: 850px;
+    }
+
+    .questionHead {
+        font-size: 30px;
+        margin-top: 100px;
+    }
+
+    .button {
+        font-size: 26px;
+    }
+
+    .scoreDisplay, .initialPrompt {
+        font-size: 26px;
+    }
+
+    .textbox {
+        font-size: 28px;
+        min-height: 40px;
+        min-width: 250px;
+        margin-bottom: 15px;
+    }
+
+    .initialSubmit, .redoBtn, .retryBtn {
+        font-size: 24px;
+    }
+
+    .initialSubmit:hover, .redoBtn:hover, .retryBtn:hover {
+        font-size: 26px;
+    }
+
+    .timesupMsg {
+        margin-top: 100px;
+    }
+
+    .scoreboardText {
+        font-size: 30px;
+        margin-top: 50px;
+    }
+    
+    .yourscoreText, .yourinitialsText {
+        font-size: 24px;
+    }
+}
+
+/* tablets */
+@media screen and (max-width: 800px) {
+    .header {
+        flex-flow: column wrap;
+        align-items: center;
+    }
+
+    .headertxt {
+        font-size: 35px;
+        margin-left: -40px;
+        margin-bottom: -20px;
+    }
+
+    #timer {
+        font-size: 20px;
+        margin-top: 15px;
+    }
+
+    .startBtn {
+        font-size: 40px;
+        padding: 20px;
+        padding-left: 60px;
+        padding-right: 60px;
+        margin-top: 300px;
+    }
+
+    .startBtn:hover {
+        font-size: 50px;
+    }
+
+    .questionHead {
+        flex-flow: row wrap;
+        justify-content: center;
+        font-size: 22px;
+        margin-top: 400px;
+        margin-left: 20px;
+    }
+
+    .button {
+        font-size: 18px;
+    }
+
+    .scoreDisplay, .initialPrompt {
+        font-size: 22px;
+        margin-left: 35px;
+    }
+
+    .textbox {
+        font-size: 18px;
+        min-height: 30px;
+        min-width: 150px;
+        margin-bottom: 15px;
+    }
+
+    .initialSubmit, .redoBtn, .retryBtn {
+        font-size: 20px;
+    }
+
+    .retryBtn {
+        margin-left: 35px;
+        margin-top: 10px;
+    }
+
+    .initialSubmit:hover, .redoBtn:hover, .retryBtn:hover {
+        font-size: 22px;
+    }
+
+    .timesupMsg {
+        margin-top: 100px;
+        margin-left: 35px;
+        font-size: 22px;
+    }
+
+    .scoreboardText {
+        font-size: 26px;
+        margin-top: 150px;
+    }
+    
+    .yourscoreText, .yourinitialsText {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+}
+
+/* smartphones */
+@media screen and (max-width: 450px) {
+    .header {
+        flex-flow: column wrap;
+        align-items: center;
+    }
+
+    .headertxt {
+        font-size: 19px;
+        margin-left: -45px;
+        margin-bottom: -30px;
+    }
+
+    #timer {
+        font-size: 15px;
+        margin-top: 30px;
+        margin-bottom: -5px;
+        margin-left: -30px;
+    }
+
+    .startBtn {
+        font-size: 30px;
+        padding: 20px;
+        padding-left: 60px;
+        padding-right: 60px;
+        margin-top: 200px;
+    }
+
+    .startBtn:hover {
+        font-size: 40px;
+    }
+
+    .questionHead {
+        flex-flow: row wrap;
+        justify-content: center;
+        font-size: 16px;
+        margin-top: 330px;
+        margin-left: 15px;
+    }
+
+    .button {
+        font-size: 16px;
+    }
+
+    .scoreDisplay, .initialPrompt {
+        font-size: 16px;
+        margin-left: 20px;
+    }
+
+    .textbox {
+        font-size: 14px;
+        min-height: 25px;
+        margin-bottom: 15px;
+    }
+
+    .initialSubmit, .redoBtn, .retryBtn {
+        font-size: 16px;
+    }
+
+    .retryBtn {
+        margin-left: 25px;
+        margin-top: 5px;
+    }
+
+    .initialSubmit:hover, .redoBtn:hover, .retryBtn:hover {
+        font-size: 18px;
+    }
+
+    .timesupMsg {
+        margin-top: 150px;
+        margin-left: 25px;
+        font-size: 16px;
+    }
+
+    .scoreboardText {
+        font-size: 20px;
+        margin-top: 150px;
+        margin-bottom: 12px;
+    }
+    
+    .yourscoreText, .yourinitialsText {
+        font-size: 16px;
+        margin-bottom: 10px;
     }
 }
