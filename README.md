@@ -1,5 +1,22 @@
-# 04-quiz
+# 04-Quiz
 
-https://developer.mozilla.org/en-US/docs/Web/API/Location/reload - location.reload() method source
+##Project Description
+[PAGE LINK]
 
-https://stackoverflow.com/questions/5271782/how-to-disable-the-resize-grabber-of-textarea for disabling text box resize
+This is a 10-question, timed quiz on Javascript and DOM fundamentals. Users will receive a final score based on their time remaining (-/100 seconds); wrong answers will deduct 10 seconds. Users can input their initials, which are locally stored and displayed along with the final score.
+
+##Technology Used
+HTML - provides structure and basic content for the site.
+CSS - provides style for the page
+JavaScript - for HTML generation and quiz interactivity
+
+##Overview of Site
+[SCREENSHOTS]
+
+##Summary
+Used HTML to set div structure
+Used CSS to add style to the page
+Used Javascript to generate HTML elements and add interactivity
+
+##Links
+Github: <a href="https://github.com/hanwol525">hanwol525</a>
