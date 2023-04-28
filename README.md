@@ -11,7 +11,11 @@ CSS - provides style for the page
 JavaScript - for HTML generation and quiz interactivity
 
 ## Overview of Site
-[SCREENSHOTS]
+<img src="assets/imgs/start-screen.png" alt="quiz start screen" title="Quiz start screen">
+<img src="assets/imgs/quiz-inprogress.png" alt="quiz in progress" title="Quiz in progress">
+<img src="assets/imgs/complete-quiz.png" alt="finished quiz" title="Finished quiz">
+<img src="assets/imgs/final-score.png" alt="final score + initials" title="Final score and initials">
+<img src="assets/imgs/times-up.png" alt="'time's up' screen" title="'Time's up!' screen">
 
 ## Summary
 Used HTML to set div structure
