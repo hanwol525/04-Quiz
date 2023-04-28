@@ -1,7 +1,7 @@
 # 04-Quiz
 
 ## Project Description
-[PAGE LINK]
+<a href="https://hanwol525.github.io/04-Quiz/">Deployed page</a>
 
 This is a 10-question, timed quiz on Javascript and DOM fundamentals. Users will receive a final score based on their time remaining (-/100 seconds); wrong answers will deduct 10 seconds. Users can input their initials, which are locally stored and displayed along with the final score.
 
